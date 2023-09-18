@@ -7,7 +7,7 @@ def clipping(intensitas):
         return 255
     return intensitas
 
-def penambahan_dua_citra(citra_A, citra_B, citra_hasil):
+def penambahan_dua_citra(citra_A, citra_B):
     CITRA_A = Image.open(citra_A)
     PIXEL_A = CITRA_A.load()
 
@@ -22,12 +22,10 @@ def penambahan_dua_citra(citra_A, citra_B, citra_hasil):
 
     for x in range(ukuran_horizontal):
         for y in range(ukuran_vertikal):
-            R = clipping(PIXEL_A[x, y][0] - PIXEL_B[x, y][0])
-            G = clipping(PIXEL_A[x, y][1] - PIXEL_B[x, y][1])
-            B = clipping(PIXEL_A[x, y][2] - PIXEL_B[x, y][2])
+            R = clipping(PIXEL_A[x, y][0] + PIXEL_B[x, y][0])
+            G = clipping(PIXEL_A[x, y][1] + PIXEL_B[x, y][1])
+            B = clipping(PIXEL_A[x, y][2] + PIXEL_B[x, y][2])
             PIXEL_HASIL[x, y] = (R, G, B)
-    CITRA_HASIL.save(citra_hasil)
 
-
-penambahan_dua_citra('mask.jpg', 'noMasker.jpg',
-                      'pengurangan_citra.jpg')
+    # Menampilkan citra hasil
+    CITRA_HASIL.show()
