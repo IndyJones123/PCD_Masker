@@ -31,3 +31,4 @@ def perform_translation(image_path, tx, ty):
     else:
         print("Failed to load the image.")
 
+# perform_translation("Gambar.jpg", 100, 20)

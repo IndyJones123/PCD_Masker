@@ -47,3 +47,5 @@ def perform_rotation(image_path, angle_degrees):
         cv2.destroyAllWindows()
     else:
         print("Gagal memuat gambar.")
+
+perform_rotation("Gambar.jpg", 90)

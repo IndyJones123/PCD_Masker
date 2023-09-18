@@ -1,5 +1,6 @@
 import Translation;
 import Rotation;
+import Flip;
 
 
 def option_1():
@@ -64,7 +65,17 @@ def option_6():
 
     #Flipping    
     elif choiceGeometri == '3':
-        option_3()
+        image_path = input("Masukkan Path Gambar: ")
+    # Input validation for Slide_Horizontal
+        while True:
+            TypeFlip = input("Masukkan Type Flip 0 = Horizontal, 1 = Vertikal  ")
+            try:
+                TypeFlip = int(TypeFlip)
+                break  # Exit the loop if conversion to int is successful
+            except ValueError:
+                print("Invalid input. Please enter a valid integer for Slide_Horizontal.")
+
+        Flip.perform_flip(image_path,TypeFlip)
 
     #Zooming    
     elif choiceGeometri == '4':
