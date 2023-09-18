@@ -84,16 +84,14 @@
 
 [![Identifikasi Penggunaan Masker][product-screenshot]](https://i.ibb.co/vZQbFkv/Masker.jpg)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Proyek ini bertujuan untuk mengembangkan sistem otomatis yang dapat mengidentifikasi penggunaan masker dalam berbagai situasi, seperti di tempat umum, tempat kerja, atau acara besar. Dengan memanfaatkan teknologi pengenalan wajah dan analisis gambar, proyek ini akan memberikan solusi untuk memantau dan memastikan kepatuhan pengguna dalam menggunakan masker demi menjaga kesehatan masyarakat dan mencegah penyebaran penyakit.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Rumusan Masalah:
 
-Use the `BLANK_README.md` to get started.
+* Bagaimana mengembangkan model CNN yang dapat mengenali penggunaan masker dari citra wajah dalam berbagai kondisi?
+* Bagaimana menguji dan memvalidasi akurasi model CNN serta mengatasi masalah klasifikasi palsu positif atau palsu negatif?
+* Bagaimana mengintegrasikan model CNN ke dalam sistem monitoring real-time untuk pemantauan penggunaan masker di tempat umum, tempat kerja, atau acara besar?
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -250,7 +248,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://i.ibb.co/vZQbFkv/Masker.jpg
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
