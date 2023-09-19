@@ -2,6 +2,11 @@ import Translation;
 import Rotation;
 import Flip;
 import Zooming;
+import penjumlahan;
+import pengurangan;
+import booleanAnd;
+import booleanOr;
+import booleanXor;
 
 
 def option_1():
@@ -14,10 +19,52 @@ def option_3():
     print("Option 3 selected. You can put your code here.")
 
 def option_4():
-    print("Option 4 selected. You can put your code here.")
+    print("1.Penjumlahan")
+    print("2.Pengurangan\n")
+
+    choiceAritmatika = input("Masukan No Pilihan Operasi : ")
+    #penjumlahan
+    if choiceAritmatika == '1':
+        image1_path = input("Masukkan Path Gambar 1: ")
+        image2_path = input("Masukkan Path Gambar 2: ")
+        penjumlahan.penambahan_dua_citra(image1_path, image2_path)
+
+    #pengurangan
+    elif choiceAritmatika == '2':
+        image1_path = input("Masukkan Path Gambar 1: ")
+        image2_path = input("Masukkan Path Gambar 2: ")
+        pengurangan.pengurangan_dua_citra(image1_path, image2_path)
+    
+    else:
+        print("Invalid choice. Please choose a valid option.")
+
 
 def option_5():
-    print("Option 4 selected. You can put your code here.")
+    print("1.Boolean And")
+    print("2.Boolean Or")
+    print("3.Boolean Xor\n")
+
+    choiceBoolean = input("Masukan No Pilihan Operasi : ")
+    #Boolean And
+    if choiceBoolean == '1':
+        image1_path = input("Masukkan Path Gambar 1: ")
+        image2_path = input("Masukkan Path Gambar 2: ")
+        booleanAnd.boolean_and(image1_path, image2_path)
+
+    #Boolean Or
+    elif choiceBoolean == '2':
+        image1_path = input("Masukkan Path Gambar 1: ")
+        image2_path = input("Masukkan Path Gambar 2: ")
+        booleanOr.boolean_or(image1_path, image2_path)
+
+    #Boolean Xor
+    elif choiceBoolean == '3':
+        image1_path = input("Masukkan Path Gambar 1: ")
+        image2_path = input("Masukkan Path Gambar 2: ")
+        booleanXor.boolean_xor(image1_path, image2_path)
+    
+    else:
+        print("Invalid choice. Please choose a valid option.")
 
 def option_6():
     print("1.Translasi")
@@ -129,4 +176,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
