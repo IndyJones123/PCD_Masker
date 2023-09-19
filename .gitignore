@@ -1,1 +1,2 @@
-./Preprocessing/__pycache__
+# .gitignore
+/Preprocessing/__pycache__/

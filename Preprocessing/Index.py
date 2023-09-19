@@ -26,10 +26,6 @@ def option_1():
     # Panggil fungsi ubah_gambar_negatif untuk menampilkan citra negatif
     ubah_gambar_negatif(input_image_path)
 
-
-def option_1():
-    print("Option 1 selected.")
-      
 def option_2():
     print("Option 2 selected.")
 
