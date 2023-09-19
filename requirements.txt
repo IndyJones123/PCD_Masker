@@ -3,5 +3,3 @@ opencv-python==4.8.0.76
 pip==23.2.1
 pywin32==306
 setuptools==65.5.0
-Pillow==8.3.2
-Pillow==10.0.1
