@@ -1,6 +1,7 @@
 import Translation;
 import Rotation;
 import Flip;
+import Zooming;
 
 
 def option_1():
@@ -79,7 +80,17 @@ def option_6():
 
     #Zooming    
     elif choiceGeometri == '4':
-        option_4()
+        image_path = input("Masukkan Path Gambar: ")
+    # Input validation for Slide_Horizontal
+        while True:
+            ZoomParameter = input("Masukkan Berapa Kali Zoom : ")
+            try:
+                ZoomParameter = int(ZoomParameter)
+                break  # Exit the loop if conversion to int is successful
+            except ValueError:
+                print("Invalid input. Please enter a valid integer for Slide_Horizontal.")
+
+        Zooming.perform_zoom(image_path,ZoomParameter)
     else:
         print("Invalid choice. Please choose a valid option.")
 
