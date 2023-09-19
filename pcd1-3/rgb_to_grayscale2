@@ -1,0 +1,62 @@
+from PIL import Image
+import os
+import matplotlib.pyplot as plt
+
+# Fungsi citra biner
+def citra_biner(nilai_ambang, input_image_path, output_folder_path):
+    # Buka gambar
+    CITRA = Image.open(input_image_path).convert('L')
+    PIXEL = CITRA.load()
+
+    ukuran_horizontal = CITRA.size[0]
+    ukuran_vertikal = CITRA.size[1]
+
+    for x in range(ukuran_horizontal):
+        for y in range(ukuran_vertikal):
+            if PIXEL[x, y] < nilai_ambang:
+                PIXEL[x, y] = 0
+            else:
+                PIXEL[x, y] = 255
+
+    nama_setelah_disave = f'gambar_biner_{nilai_ambang}.jpg'
+    output_image_path = os.path.join(output_folder_path, nama_setelah_disave)
+    CITRA.save(output_image_path)
+
+    return output_image_path
+
+# Path ke gambar awal
+input_image_path = 'masker.jpg'
+
+# Meminta pengguna untuk memasukkan path folder untuk menyimpan hasil gambar biner
+output_folder_path = 'C:/Users/Acer/Desktop/tugas pcd 1-3/hasil_citra_grayscale'
+
+# Pastikan folder output ada atau buat jika belum ada
+if not os.path.exists(output_folder_path):
+    os.makedirs(output_folder_path)
+
+# List nilai ambang untuk citra biner
+nilai_ambang_list = [50, 128, 200, 230]
+
+# Tampilkan gambar asli dan hasil biner secara berdampingan
+fig, axs = plt.subplots(len(nilai_ambang_list), 2, figsize=(10, 5 * len(nilai_ambang_list)))
+
+for i, nilai_ambang in enumerate(nilai_ambang_list):
+    # Simpan hasil citra biner dan dapatkan path hasil
+    hasil_image_path = citra_biner(nilai_ambang, input_image_path, output_folder_path)
+
+    # Tampilkan gambar asli
+    axs[i, 0].imshow(Image.open(input_image_path).convert('L'), cmap='gray')
+    axs[i, 0].set_title('Gambar Asli')
+
+    # Tampilkan hasil citra biner
+    axs[i, 1].imshow(Image.open(hasil_image_path), cmap='gray')
+    axs[i, 1].set_title(f'Hasil Citra Biner (Ambang {nilai_ambang})')
+
+    # Sembunyikan sumbu
+    axs[i, 0].axis('off')
+    axs[i, 1].axis('off')
+
+plt.tight_layout()
+plt.show()
+
+print('Hasil citra biner telah disimpan di folder:', output_folder_path)
