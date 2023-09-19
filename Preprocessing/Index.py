@@ -1,11 +1,59 @@
+<<<<<<< Updated upstream
 def option_1():
     print("Option 1 selected. You can put your code here.")
+=======
+import os;
+import Translation;
+import Flip;
+import Zooming;
+from image_negative import ubah_gambar_negatif;
+from Grayscale import perform_grayscale;
+from brightening import tampilkan_hasil_pencerahan
+
+def option_1():
+    print("Option 1 selected.")
+    
+    # Meminta pengguna untuk memasukkan path gambar untuk konversi ke negatif
+    input_image_path = input("Masukkan Path Gambar untuk konversi ke negatif: ")
+    
+    # Memeriksa apakah file gambar ada di path yang dimasukkan pengguna
+    if not os.path.isfile(input_image_path):
+        print("File tidak ditemukan.")
+        return
+    
+    # Panggil fungsi ubah_gambar_negatif untuk menampilkan citra negatif
+    ubah_gambar_negatif(input_image_path)
+>>>>>>> Stashed changes
 
 def option_2():
-    print("Option 2 selected. You can put your code here.")
+    print("Option 2 selected.")
+
+    # Meminta pengguna untuk memasukkan path gambar untuk konversi ke grayscale
+    input_image_path = input("Masukkan Path Gambar untuk konversi ke grayscale: ")
+
+    # Memeriksa apakah file gambar ada di path yang dimasukkan pengguna
+    if not os.path.isfile(input_image_path):
+        print("File tidak ditemukan.")
+        return
+
+    # Panggil fungsi perform_grayscale untuk menampilkan citra grayscale
+    perform_grayscale(input_image_path)
 
 def option_3():
-    print("Option 3 selected. You can put your code here.")
+    print("Option 3 selected.")
+
+    # Meminta pengguna memasukkan nama file gambar
+    input_image_path = input("Masukkan path gambar : ")
+
+    # Memeriksa apakah file gambar ada di path yang dimasukkan pengguna
+    if not os.path.isfile(input_image_path):
+        print("File tidak ditemukan.")
+    else:
+        # Meminta pengguna memasukkan nilai pencerahan
+        nilai_pencerahan = int(input("Masukkan nilai pencerahan: "))
+
+        # Panggil fungsi tampilkan_hasil_pencerahan
+        tampilkan_hasil_pencerahan(input_image_path, nilai_pencerahan)
 
 def option_4():
     print("Option 4 selected. You can put your code here.")
