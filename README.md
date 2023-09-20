@@ -117,36 +117,66 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+This is a step-by-step guide on how to install and run the PCD_Masker project locally. Please follow these instructions carefully to set up the project on your machine.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+Before you begin, ensure you have the following software installed on your machine:
+
+* Python 3.7 or higher
+* pip (Python package manager)
+* Git (optional)
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Follow these steps to install and run the PCD_Masker project:
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+1. **Clone the repository to your local machine:**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+    ```sh
+    git clone https://github.com/your_username_/PCD_Masker.git
+    cd PCD_Masker
+    ```
+
+2. **Navigate to the project directory:**
+
+    ```sh
+    cd PCD_Masker
+    ```
+
+3. **Create a virtual environment (optional but recommended):**
+
+    ```sh
+    python -m venv venv
+    ```
+
+4. **Activate the virtual environment (if created):**
+
+   - On Linux/macOS:
+   
+    ```sh
+    source venv/bin/activate
+    ```
+
+   - On Windows:
+
+    ```sh
+    venv\Scripts\activate
+    ```
+
+5. **Install project dependencies:**
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+6. **Run the PCD_Masker application:**
+
+    ```sh
+    python index.py
+    ```
+
+Pastikan untuk memasukkan langkah-langkah ini dalam README.md agar pengguna dapat mengikuti dengan baik.
 
 
 
