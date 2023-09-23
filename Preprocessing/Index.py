@@ -1,11 +1,9 @@
 import os;
-import Translation;
-import Rotation;
-import Flip;
-import Zooming;
+
 from image_negative import ubah_gambar_negatif;
 from Grayscale import perform_grayscale;
-from brightening import tampilkan_hasil_pencerahan
+from brightening import tampilkan_hasil_pencerahan;
+from histogram_equalization import histogram_equalization
 
 def option_1():
     print("Option 1 selected.")
@@ -53,9 +51,21 @@ def option_3():
 
 def option_4():
     print("Option 4 selected. You can put your code here.")
+    
+    # Meminta pengguna untuk memasukkan path gambar untuk histogram equalization
+    input_image_path = input("Masukkan Path Gambar untuk histogram equalization: ")
+    
+    # Memeriksa apakah file gambar ada di path yang dimasukkan pengguna
+    if not os.path.isfile(input_image_path):
+        print("File tidak ditemukan.")
+        return
+    
+    # Panggil fungsi histogram_equalization untuk menampilkan hasil equalization
+    histogram_equalization(input_image_path)
+
 
 def option_5():
-    print("Option 4 selected. You can put your code here.")
+    print("Option 4 selected.")
 
 def option_6():
     print("1.Translasi")
@@ -140,7 +150,7 @@ def main():
         print("1. Citra Negatif")
         print("2. Citra GrayScale")
         print("3. Image Brightening")
-        print("4. Operasi Aritmatika 2 Buah Citra")
+        print("4. histogram_equalization")
         print("5. Option Boolean Pada Citra")
         print("6. Operasi Geometri")
         print("7. Quit")
