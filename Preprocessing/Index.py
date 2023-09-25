@@ -10,7 +10,7 @@ import booleanOr;
 import booleanXor;
 from image_negative import ubah_gambar_negatif;
 from Grayscale import perform_grayscale;
-from brightening import tampilkan_hasil_pencerahan
+from brightening import tampilkan_hasil_pencerahan;
 
 def option_1():
     print("Option 1 selected.")
