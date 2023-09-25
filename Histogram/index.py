@@ -3,6 +3,7 @@ import cv2
 from tkinter import filedialog
 from PIL import Image, ImageTk
 import NormalisasiHistogram
+import histogram_equalization
 
 # Functions that take an image parameter
 def function1(image):
@@ -11,6 +12,7 @@ def function1(image):
 
 def function2(image):
     # Replace this with your logic for function 2
+    histogram_equalization.histogram_equalization(image)
     pass
 
 def function3(image):
