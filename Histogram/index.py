@@ -4,6 +4,7 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 import NormalisasiHistogram
 import histogram_equalization
+import histogram_stretch
 
 # Functions that take an image parameter
 def function1(image):
@@ -16,7 +17,7 @@ def function2(image):
     pass
 
 def function3(image):
-    # Replace this with your logic for function 3
+    histogram_stretch.plot_histogram(image)
     pass
 
 # Function to open a file dialog for image selection
@@ -31,6 +32,7 @@ def open_image():
         image_label.config(image=image)
         image_label.image = image  # Keep a reference to avoid garbage collection
         image_label.matrix = cv2.imread(file_path)
+        image_label.greyscale = Image.open(file_path).convert('L')
         # Enable the function buttons
         button1.config(state=tk.NORMAL)
         button2.config(state=tk.NORMAL)
@@ -47,7 +49,7 @@ image_label.pack()
 # Create buttons to execute functions
 button1 = tk.Button(root, text="Normalisasi Histogram", command=lambda: function1(image_label.matrix))
 button2 = tk.Button(root, text="Equalization Histogram", command=lambda: function2(image_label.matrix))
-button3 = tk.Button(root, text="Stretching Histogram", command=lambda: function3(image_label.matrix))
+button3 = tk.Button(root, text="Stretching Histogram", command=lambda: function3(image_label.greyscale))
 
 # Initially, disable the function buttons until an image is selected
 button1.config(state=tk.DISABLED)
