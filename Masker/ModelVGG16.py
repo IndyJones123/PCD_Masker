@@ -58,6 +58,7 @@ test_generator = test_datagen.flow_from_directory(  #Membuat generator data uji 
     class_mode='categorical',
     shuffle=False)
 
+<<<<<<< Updated upstream
 
 # Prediksi kelas data uji
 predictions = model.predict(test_generator) #Melakukan prediksi kelas data uji menggunakan model yang telah di-train sebelumnya.
@@ -76,6 +77,11 @@ class_labels = list(test_generator.class_indices.keys()) #Mendapatkan label kela
 report = classification_report(true_classes, predicted_classes, target_names=class_labels) #Menghasilkan laporan evaluasi model.
 print("Classification Report:") #Mencetak judul "Classification Report".
 print(report) #Mencetak laporan evaluasi model yang mencakup berbagai metrik, lalu kita akan execute file index.py
+=======
+# Evaluasi model
+evaluation = model.evaluate(test_generator)
+print("Akurasi:", evaluation[1] * 100, "%")
+>>>>>>> Stashed changes
 
 # Evaluasi model
 evaluation = model.evaluate(test_generator) #Menggunakan metode evaluate pada model untuk mengevaluasi performa model menggunakan data uji (test_generator).

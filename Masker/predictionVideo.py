@@ -5,7 +5,7 @@ from keras.models import load_model
 from keras.preprocessing import image
 
 # Load model yang telah dilatih
-model = load_model('best3.h5')  # Gantilah dengan jalur ke model yang telah Anda simpan
+model = load_model('best.h5')  # Gantilah dengan jalur ke model yang telah Anda simpan
 
 # Inisialisasi detektor wajah (MTCNN)
 detector = MTCNN()

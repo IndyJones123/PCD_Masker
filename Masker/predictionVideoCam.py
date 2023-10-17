@@ -4,8 +4,13 @@ from mtcnn import MTCNN #MTCNN untuk deteksi wajah
 from keras.models import load_model # load_model dan image dari Keras untuk memuat model dan memproses gambar
 from keras.preprocessing import image
 
+<<<<<<< Updated upstream
 # Memuat model yang telah dilatih sebelumnya dengan menggunakan load_model dari Keras.
 model = load_model('best3.h5')  # Gantilah dengan jalur ke model yang telah Anda simpan
+=======
+# Load model yang telah dilatih
+model = load_model('best.h5')  # Gantilah dengan jalur ke model yang telah Anda simpan
+>>>>>>> Stashed changes
 
 # Menginisialisasi detektor wajah menggunakan MTCNN.
 detector = MTCNN()
