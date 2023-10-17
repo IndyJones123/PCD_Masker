@@ -1,4 +1,6 @@
 # Import library yang dibutuhkan
+from sklearn.metrics import confusion_matrix, classification_report
+import numpy as np
 import tensorflow as tf
 from keras.applications import VGG16
 from keras.models import Model
@@ -45,7 +47,7 @@ model.compile(optimizer=Adam(learning_rate=0.0001), loss='categorical_crossentro
 model.fit(train_generator, epochs=5)
 
 # Simpan model
-model.save('best.h5')
+model.save('best3.h5')
 
 # Uji model
 test_datagen = ImageDataGenerator(rescale=1./255)
@@ -56,6 +58,21 @@ test_generator = test_datagen.flow_from_directory(
     class_mode='categorical',
     shuffle=False)
 
-# Evaluasi model
-evaluation = model.evaluate(test_generator)
-print("Akurasi:", evaluation[1] * 100, "%")
+# Prediksi kelas data uji
+predictions = model.predict(test_generator)
+predicted_classes = np.argmax(predictions, axis=1)
+
+# Dapatkan ground truth (kelas sebenarnya) dari generator
+true_classes = test_generator.classes
+
+# Hitung confusion matrix
+confusion = confusion_matrix(true_classes, predicted_classes)
+print("Confusion Matrix:")
+print(confusion)
+
+# Cetak laporan klasifikasi
+class_labels = list(test_generator.class_indices.keys())
+report = classification_report(true_classes, predicted_classes, target_names=class_labels)
+print("Classification Report:")
+print(report)
+

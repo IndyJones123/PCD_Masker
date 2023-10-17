@@ -32,4 +32,4 @@ def predict_and_show_image(image_path):
 
 # Contoh penggunaan
 image_path = 'Gambar1.jpg'  # Gantilah dengan jalur ke gambar yang ingin Anda prediksi
-predict_and_show_image(image_path)
+# predict_and_show_image(image_path)
