@@ -78,6 +78,5 @@ print("Classification Report:") #Mencetak judul "Classification Report".
 print(report) #Mencetak laporan evaluasi model yang mencakup berbagai metrik, lalu kita akan execute file index.py
 
 # Evaluasi model
-evaluation = model.evaluate(test_generator)
-print("Akurasi:", evaluation[1] * 100, "%")
-
+evaluation = model.evaluate(test_generator) #Menggunakan metode evaluate pada model untuk mengevaluasi performa model menggunakan data uji (test_generator).
+print("Akurasi:", evaluation[1] * 100, "%") #Mencetak akurasi evaluasi model dalam persentase.
