@@ -50,8 +50,8 @@ model.fit(train_generator, epochs=5)
 model.save('best3.h5')
 
 # Uji model
-test_datagen = ImageDataGenerator(rescale=1./255)
-test_generator = test_datagen.flow_from_directory(
+test_datagen = ImageDataGenerator(rescale=1./255) #Menginisialisasi objek untuk memproses data uji, dengan mengubah skala nilai piksel ke rentang 0-1.
+test_generator = test_datagen.flow_from_directory(  #Membuat generator data uji dari sebuah direktori, dengan spesifikasi target ukuran gambar, batch size, mode kelas, dan pengacakan tertentu.
     test_data_dir,
     target_size=(img_height, img_width),
     batch_size=1,
@@ -59,20 +59,20 @@ test_generator = test_datagen.flow_from_directory(
     shuffle=False)
 
 # Prediksi kelas data uji
-predictions = model.predict(test_generator)
-predicted_classes = np.argmax(predictions, axis=1)
+predictions = model.predict(test_generator) #Melakukan prediksi kelas data uji menggunakan model yang telah di-train sebelumnya.
+predicted_classes = np.argmax(predictions, axis=1) #Mengambil kelas yang diprediksi dari hasil probabilitas prediksi.
 
 # Dapatkan ground truth (kelas sebenarnya) dari generator
 true_classes = test_generator.classes
 
 # Hitung confusion matrix
-confusion = confusion_matrix(true_classes, predicted_classes)
-print("Confusion Matrix:")
-print(confusion)
+confusion = confusion_matrix(true_classes, predicted_classes) #Menghitung confusion matrix untuk mengevaluasi performa model.
+print("Confusion Matrix:") #mencetak judul dari confusion matrix
+print(confusion) #Mencetak isi dari confusion matrix.
 
 # Cetak laporan klasifikasi
-class_labels = list(test_generator.class_indices.keys())
-report = classification_report(true_classes, predicted_classes, target_names=class_labels)
-print("Classification Report:")
-print(report)
+class_labels = list(test_generator.class_indices.keys()) #Mendapatkan label kelas dari generator data uji.
+report = classification_report(true_classes, predicted_classes, target_names=class_labels) #Menghasilkan laporan evaluasi model.
+print("Classification Report:") #Mencetak judul "Classification Report".
+print(report) #Mencetak laporan evaluasi model yang mencakup berbagai metrik, lalu kita akan execute file index.py
 
