@@ -28,15 +28,15 @@ train_generator = train_datagen.flow_from_directory( #memproses data training ya
     class_mode='categorical') #mengatur cara label kelas diproses dan dihasilkan dengan kelas categorial karena terdiri dari 2 class
 
 # Membangun arsitektur model
-base_model = VGG16(weights='imagenet', include_top=False, input_shape=(img_height, img_width, 3))
-x = base_model.output
-x = Flatten()(x)
-x = Dense(128, activation='relu')(x)
-predictions = Dense(2, activation='softmax')(x)
+base_model = VGG16(weights='imagenet', include_top=False, input_shape=(img_height, img_width, 3)) # Membuat model dasar VGG16 dengan bobot yang telah dilatih di Imagenet (Input Layyer)
+x = base_model.output # Menghubungkan keluaran model dasar 
+x = Flatten()(x) # Mengubah keluaran model dasar menjadi vektor 1D (Hidden Layers)
+x = Dense(128, activation='relu')(x) # Menambahkan lapisan Dense dengan 128 unit / neuron dan aktivasi ReLU (Hidden Layers)
+predictions = Dense(2, activation='softmax')(x) # Menambahkan lapisan prediksi dengan 2 unit (klasifikasi biner) dan aktivasi softmax (Output Layers)
 
 model = Model(inputs=base_model.input, outputs=predictions)
 
-# Freeze layer-layer VGG16
+# Freeze layer-layer VGG16 (mengatur lapisan-lapisan VGG16 sebagai tidak dapat dilatih)
 for layer in base_model.layers:
     layer.trainable = False
 
