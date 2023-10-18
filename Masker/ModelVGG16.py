@@ -47,7 +47,7 @@ model.compile(optimizer=Adam(learning_rate=0.0001), loss='categorical_crossentro
 model.fit(train_generator, epochs=5)
 
 # Simpan model
-model.save('best3.h5')
+model.save('best.h5')
 
 # Uji model
 test_datagen = ImageDataGenerator(rescale=1./255) #Menginisialisasi objek untuk memproses data uji, dengan mengubah skala nilai piksel ke rentang 0-1.
@@ -57,31 +57,6 @@ test_generator = test_datagen.flow_from_directory(  #Membuat generator data uji 
     batch_size=1,
     class_mode='categorical',
     shuffle=False)
-
-<<<<<<< Updated upstream
-
-# Prediksi kelas data uji
-predictions = model.predict(test_generator) #Melakukan prediksi kelas data uji menggunakan model yang telah di-train sebelumnya.
-predicted_classes = np.argmax(predictions, axis=1) #Mengambil kelas yang diprediksi dari hasil probabilitas prediksi.
-
-# Dapatkan ground truth (kelas sebenarnya) dari generator
-true_classes = test_generator.classes
-
-# Hitung confusion matrix
-confusion = confusion_matrix(true_classes, predicted_classes) #Menghitung confusion matrix untuk mengevaluasi performa model.
-print("Confusion Matrix:") #mencetak judul dari confusion matrix
-print(confusion) #Mencetak isi dari confusion matrix.
-
-# Cetak laporan klasifikasi
-class_labels = list(test_generator.class_indices.keys()) #Mendapatkan label kelas dari generator data uji.
-report = classification_report(true_classes, predicted_classes, target_names=class_labels) #Menghasilkan laporan evaluasi model.
-print("Classification Report:") #Mencetak judul "Classification Report".
-print(report) #Mencetak laporan evaluasi model yang mencakup berbagai metrik, lalu kita akan execute file index.py
-=======
-# Evaluasi model
-evaluation = model.evaluate(test_generator)
-print("Akurasi:", evaluation[1] * 100, "%")
->>>>>>> Stashed changes
 
 # Evaluasi model
 evaluation = model.evaluate(test_generator) #Menggunakan metode evaluate pada model untuk mengevaluasi performa model menggunakan data uji (test_generator).
